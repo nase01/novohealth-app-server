@@ -2,14 +2,14 @@
 const validator = require('validator')
 const bcrypt = require('bcrypt')
 
-const { Admin, Store } = require('../../models/sequelize')
+const { Admin, Branch } = require('../../models/sequelize')
 // const { strongPwOpts } = require('../strongPwOpts.js')
 const customValidator = require('../custom-validator')
 
 const adminValidate = async (input, actionTaker, id = null) => {
   const self = actionTaker === id
   const actionTarget = id ? await Admin.findOne({ where: { id } }) : null
-  const store = !self ? await Store.findOne({ where: { id: input.storeId } }) : true
+  const store = !self ? await Branch.findOne({ where: { id: input.branchId } }) : true
 
   if (self) {
     if (actionTarget.pwForceChange && !input.newPassword) {
@@ -39,6 +39,14 @@ const adminValidate = async (input, actionTaker, id = null) => {
 
   if (!customValidator.isName(input.name)) {
     return { error: 'Invalid name.' }
+  }
+
+  if (!customValidator.isDate(input.birthday)) {
+    return { error: 'birthday must be a valid date (Format: YYYY-MM-DD)' }
+  }
+
+  if (!customValidator.isDate(input.dateHired)) {
+    return { error: 'dateHired must be a valid date (Format: YYYY-MM-DD)' }
   }
 
   if (input.username === "") {

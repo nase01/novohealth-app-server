@@ -20,11 +20,11 @@ module.exports = {
         required: true
       },
       dateHired: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         required: true
       },
       birthday: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         required: true
       },
       imageURL: {

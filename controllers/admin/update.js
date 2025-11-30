@@ -35,6 +35,21 @@ const adminUpdate = async (req, res) => {
       admin.name = req.body.name
     }
 
+    if (req.body.address !== admin.address) {
+      modifiedDetails.push(`Address: ${admin.address} -> ${req.body.address}.`)
+      admin.address = req.body.address
+    }
+
+    if (req.body.birthday !== admin.birthday) {
+      modifiedDetails.push(`Birthday: ${admin.birthday} -> ${req.body.birthday}.`)
+      admin.birthday = req.body.birthday
+    }
+
+    if (req.body.dateHired !== admin.dateHired) {
+      modifiedDetails.push(`Date Hired: ${admin.dateHired} -> ${req.body.dateHired}.`)
+      admin.dateHired = req.body.dateHired
+    }
+
     if (req.body.email !== admin.email) {
       modifiedDetails.push(`Email: ${admin.email} -> ${req.body.email}.`)
       admin.email = req.body.email
@@ -68,9 +83,9 @@ const adminUpdate = async (req, res) => {
       admin.role = req.body.role
     }
 
-    if (req.body.storeId !== admin.storeId) {
-      modifiedDetails.push(`Admin type: ${admin.storeId} -> ${req.body.storeId}.`)
-      admin.storeId = req.body.storeId
+    if (req.body.branchId !== admin.branchId) {
+      modifiedDetails.push(`Branch Id: ${admin.branchId} -> ${req.body.branchId}.`)
+      admin.branchId = req.body.branchId
     }
 
     if (req.body.active !== admin.active) {
@@ -98,9 +113,19 @@ const adminUpdate = async (req, res) => {
       admin.baseSSS = req.body.baseSSS
     }
 
+    if (req.body.baseSSSNo !== admin.baseSSSNo) {
+      modifiedDetails.push(`Base SSS No: ${admin.baseSSSNo} -> ${req.body.baseSSSNo}.`)
+      admin.baseSSSNo = req.body.baseSSSNo
+    }
+
     if (req.body.basePagIbig !== admin.basePagIbig) {
       modifiedDetails.push(`Base PagIbig: ${admin.basePagIbig} -> ${req.body.basePagIbig}.`)
       admin.basePagIbig = req.body.basePagIbig
+    }
+
+    if (req.body.basePagIbigNo !== admin.basePagIbigNo) {
+      modifiedDetails.push(`Base PagIbig No: ${admin.basePagIbigNo} -> ${req.body.basePagIbigNo}.`)
+      admin.basePagIbigNo = req.body.basePagIbigNo
     }
 
     if (req.body.basePhilhealth !== admin.basePhilhealth) {
@@ -108,8 +133,23 @@ const adminUpdate = async (req, res) => {
       admin.basePhilhealth = req.body.basePhilhealth
     }
 
+    if (req.body.basePhilhealthNo !== admin.basePhilhealthNo) {
+      modifiedDetails.push(`Base Philhealth No: ${admin.basePagIbigNo} -> ${req.body.basePhilhealthNo}.`)
+      admin.basePhilhealthNo = req.body.basePhilhealthNo
+    }
+
     if (req.body.employerSSS !== admin.employerSSS) {
       modifiedDetails.push(`Employer Philhealth Share: ${admin.employerSSS} -> ${req.body.employerSSS}.`)
+      admin.employerSSS = req.body.employerSSS
+    }
+
+    if (req.body.basePhilhealthNo !== admin.basePhilhealthNo) {
+      modifiedDetails.push(`basePagIbigNo: ${admin.basePhilhealthNo} -> ${req.body.basePhilhealthNo}.`)
+      admin.basePhilhealthNo = req.body.basePhilhealthNo
+    }
+
+     if (req.body.employerSSS !== admin.employerSSS) {
+      modifiedDetails.push(`Employer SSS Share: ${admin.employerSSS} -> ${req.body.employerSSS}.`)
       admin.employerSSS = req.body.employerSSS
     }
 

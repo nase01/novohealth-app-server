@@ -91,21 +91,27 @@ const authCurrentAdmin = (req, res) => {
         data: {
           currentAdmin: {
             ip,
+            accountType: 'admin',
             id: admin.id,
             name: admin.name,
-            accountType: 'admin',
+            address: admin.address,
+            dateHired: admin.dateHired,
+            birthday: admin.birthday,
+            imageURL: admin.imageURL,
             username: admin.username,
             email: admin.email,
             role: admin.role,
             branchId: admin.branchId,
             active: admin.active,
-            imageURL: admin.imageURL,
             pwForceChange: admin.pwForceChange,
             ipWhitelist: admin.ipWhitelist,
             baseSalary: admin.baseSalary,
             baseSSS: admin.baseSSS,
+            baseSSSNo: admin.baseSSSNo,
             basePagIbig: admin.basePagIbig,
-            basePhilhealth: admin.basePhilhealth
+            basePagIbigNo: admin.basePagIbigNo,
+            basePhilhealth: admin.basePhilhealth,
+            basePhilhealthNo: admin.basePhilhealthNo,
           }
         }
       })

@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 const literal = Sequelize.literal
-const { Admin, Store } = require('../../models/sequelize')
+const { Admin, Branch } = require('../../models/sequelize')
 
 const adminModelAssociates = () => {
   return [{
-    model: Store,
+    model: Branch,
     attributes: ['name'],
-    as: 'store'
+    as: 'branch'
   }]
 }
 
@@ -45,10 +45,10 @@ const adminDataFormatter = (data) => {
   }
 
   const formatData = (data) => {
-    const { store, ...newData } = data.toJSON()
+    const { branch, ...newData } = data.toJSON()
     return {
       ...newData,
-      storeName: store ? store.name : '',
+      branchName: branch ? branch.name : '',
       imageURL: newData.imageURL || '',
       ipWhitelist: data.ipWhitelist ? data.ipWhitelist.split(',') : []
     }

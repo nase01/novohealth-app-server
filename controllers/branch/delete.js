@@ -1,4 +1,4 @@
-const { Bra, AdminLog } = require('../../models/sequelize')
+const { Branch, AdminLog } = require('../../models/sequelize')
 const { userIp } = require('../../utils/userIp.js')
 
 const branchDelete = async (req, res) => {

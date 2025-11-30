@@ -48,12 +48,12 @@ routerAdmin.get('/admin/logs/count', adminAuthenticated, userAuthorized, adminAu
 routerAdmin.get('/admin/logs', adminAuthenticated, userAuthorized, adminAuthorized, adminLogsFetchMany)
 
 // Store Management
-routerAdmin.get('/admin/stores/count', adminAuthenticated, userAuthorized, branchCount)
-routerAdmin.get('/admin/stores/:id', adminAuthenticated, userAuthorized, branchFetch)
-routerAdmin.get('/admin/stores', adminAuthenticated, userAuthorized, branchFetchMany)
-routerAdmin.put('/admin/stores/:id', adminAuthenticated, userAuthorized, superAdminAuthorized, branchUpdate)
-routerAdmin.post('/admin/stores', adminAuthenticated, userAuthorized, superAdminAuthorized, branchCreate)
-routerAdmin.delete('/admin/stores', adminAuthenticated, userAuthorized, superAdminAuthorized, branchDelete)
+routerAdmin.get('/admin/branch/count', adminAuthenticated, userAuthorized, branchCount)
+routerAdmin.get('/admin/branch/:id', adminAuthenticated, userAuthorized, branchFetch)
+routerAdmin.get('/admin/branch', adminAuthenticated, userAuthorized, branchFetchMany)
+routerAdmin.put('/admin/branch/:id', adminAuthenticated, userAuthorized, superAdminAuthorized, branchUpdate)
+routerAdmin.post('/admin/branch', adminAuthenticated, userAuthorized, superAdminAuthorized, branchCreate)
+routerAdmin.delete('/admin/branch', adminAuthenticated, userAuthorized, superAdminAuthorized, branchDelete)
 
 //Salary Management
 routerAdmin.post('/admin/salary', adminAuthenticated, userAuthorized, adminAuthorized, salaryCreate)
