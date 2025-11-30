@@ -23,6 +23,11 @@ const adminAccountUpdate = async (req, res) => {
       self.name = req.body.name
     }
 
+    if (req.body.address !== self.address) {
+      modifiedDetails.push(`Name: ${self.address} -> ${req.body.address}.`)
+      self.address = req.body.address
+    }
+
     if (self.pwForceChange) {
       self.pwForceChange = false
     }
@@ -54,41 +59,6 @@ const adminAccountUpdate = async (req, res) => {
       self.imageURL = req.body.imageURL
     }
 
-    if (req.body.baseSalary !== self.baseSalary) {
-      modifiedDetails.push(`Base Salary: ${self.baseSalary} -> ${req.body.baseSalary}.`)
-      self.baseSalary = req.body.baseSalary
-    }
-
-    if (req.body.baseSSS !== self.baseSSS) {
-      modifiedDetails.push(`Base SSS: ${self.baseSSS} -> ${req.body.baseSSS}.`)
-      self.baseSSS = req.body.baseSSS
-    }
-
-    if (req.body.basePagIbig !== self.basePagIbig) {
-      modifiedDetails.push(`Base PagIbig: ${self.basePagIbig} -> ${req.body.basePagIbig}.`)
-      self.basePagIbig = req.body.basePagIbig
-    }
-
-    if (req.body.basePhilhealth !== self.basePhilhealth) {
-      modifiedDetails.push(`Base Philhealth: ${self.basePhilhealth} -> ${req.body.basePhilhealth}.`)
-      self.basePhilhealth = req.body.basePhilhealth
-    }
-
-    if (req.body.employerSSS !== admin.employerSSS) {
-      modifiedDetails.push(`Employer Philhealth Share: ${admin.employerSSS} -> ${req.body.employerSSS}.`)
-      admin.employerSSS = req.body.employerSSS
-    }
-
-    if (req.body.employerPagIbig !== admin.employerPagIbig) {
-      modifiedDetails.push(`Employer PagIbig Share: ${admin.employerPagIbig} -> ${req.body.employerPagIbig}.`)
-      admin.employerPagIbig = req.body.employerPagIbig
-    }
-
-    if (req.body.employerPhilhealth !== admin.employerPhilhealth) {
-      modifiedDetails.push(`Employer Philhealth Share: ${admin.employerPhilhealth} -> ${req.body.employerPhilhealth}.`)
-      admin.employerPhilhealth = req.body.employerPhilhealth
-    }
-
     await self.save()
 
     const adminLog = new AdminLog({
@@ -102,6 +72,7 @@ const adminAccountUpdate = async (req, res) => {
 
     return res.status(200).json({ data: { success: true } })
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ errors: [{ status: '500', detail: error }] })
   }
 }

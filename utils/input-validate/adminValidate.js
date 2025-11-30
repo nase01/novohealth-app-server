@@ -41,11 +41,11 @@ const adminValidate = async (input, actionTaker, id = null) => {
     return { error: 'Invalid name.' }
   }
 
-  if (!customValidator.isDate(input.birthday)) {
+  if (input.dateHired && !customValidator.isDate(input.birthday)) {
     return { error: 'birthday must be a valid date (Format: YYYY-MM-DD)' }
   }
 
-  if (!customValidator.isDate(input.dateHired)) {
+  if (input.dateHired && !customValidator.isDate(input.dateHired)) {
     return { error: 'dateHired must be a valid date (Format: YYYY-MM-DD)' }
   }
 
