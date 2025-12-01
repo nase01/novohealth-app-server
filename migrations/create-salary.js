@@ -97,7 +97,11 @@ module.exports = {
         type: Sequelize.DOUBLE,
         defaultValue: 0.00
       },
-
+      govtWTax: {
+        allowNull: false,
+        type: Sequelize.DOUBLE,
+        defaultValue: 0.00
+      },
       emprSSS: {
         allowNull: false,
         type: Sequelize.DOUBLE,

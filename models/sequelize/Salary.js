@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
 		govtSSS: DataTypes.DOUBLE,
 		govtPhilhealth: DataTypes.DOUBLE,
 		govtPagIbig: DataTypes.DOUBLE,
+		govtWTax: DataTypes.DOUBLE,
 		emprSSS: DataTypes.DOUBLE,
 		emprPhilhealth: DataTypes.DOUBLE,
 		emprPagIbig: DataTypes.DOUBLE,
