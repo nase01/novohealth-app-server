@@ -1,19 +1,20 @@
 const salaryFormula = (data) => {
 	// Destructure properties from data
 	const {
-			compBaseSalary,
-			compWorkDays,
-			compOvertime,
-			compHolidayPay,
-			compOthers,
-			dedLate,
-			dedUndertime,
-			dedAdvances,
-			dedLoans,
-			dedOthers,
-			govtSSS,
-			govtPhilhealth,
-			govtPagIbig
+		compBaseSalary,
+		compWorkDays,
+		compOvertime,
+		compHolidayPay,
+		compOthers,
+		dedLate,
+		dedUndertime,
+		dedAdvances,
+		dedLoans,
+		dedOthers,
+		govtSSS,
+		govtPhilhealth,
+		govtPagIbig,
+		govtWTax,
 	} = data;
 
 	// Calculate totalPay
@@ -34,7 +35,8 @@ const salaryFormula = (data) => {
 		dedOthers + 
 		govtSSS +
 		govtPhilhealth +
-		govtPagIbig
+		govtPagIbig +
+		govtWTax
 	).toFixed(2);
 
 	// Calculate netPay
