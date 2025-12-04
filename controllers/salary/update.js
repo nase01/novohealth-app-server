@@ -65,6 +65,11 @@ const salaryUpdate = async (req, res) => {
       salary.compOvertime = req.body.compOvertime
     }
 
+    if (req.body.compHolidayPay !== salary.compHolidayPay) {
+      modifiedDetails.push(`Holiday Pay: ${salary.compHolidayPay} -> ${req.body.compHolidayPay}.`)
+      salary.compHolidayPay = req.body.compHolidayPay
+    }
+
 		if (req.body.compOthers !== salary.compOthers) {
       modifiedDetails.push(`Comp. Others: ${salary.compOthers} -> ${req.body.compOthers}.`)
       salary.compOthers = req.body.compOthers
@@ -80,39 +85,19 @@ const salaryUpdate = async (req, res) => {
       salary.dedUndertime = req.body.dedUndertime
     }
 
-		if (req.body.shortCashier !== salary.shortCashier) {
-      modifiedDetails.push(`Short Cashier: ${salary.shortCashier} -> ${req.body.shortCashier}.`)
-      salary.shortCashier = req.body.shortCashier
+    if (req.body.dedAdvances !== salary.dedAdvances) {
+      modifiedDetails.push(`Advances: ${salary.dedAdvances} -> ${req.body.dedAdvances}.`)
+      salary.dedAdvances = req.body.dedAdvances
     }
 
-		if (req.body.shortGCash !== salary.shortGCash) {
-      modifiedDetails.push(`Short GCash: ${salary.shortGCash} -> ${req.body.shortGCash}.`)
-      salary.shortGCash = req.body.shortGCash
+    if (req.body.dedLoans !== salary.dedLoans) {
+      modifiedDetails.push(`Loans: ${salary.dedLoans} -> ${req.body.dedLoans}.`)
+      salary.dedLoans = req.body.dedLoans
     }
 
-		if (req.body.shortPayMaya !== salary.shortPayMaya) {
-      modifiedDetails.push(`Short PayMaya: ${salary.shortPayMaya} -> ${req.body.shortPayMaya}.`)
-      salary.shortPayMaya = req.body.shortPayMaya
-    }
-
-		if (req.body.shortInventory !== salary.shortInventory) {
-      modifiedDetails.push(`Short Intentory: ${salary.shortInventory} -> ${req.body.shortInventory}.`)
-      salary.shortInventory = req.body.shortInventory
-    }
-
-		if (req.body.shortCashAdvance !== salary.shortCashAdvance) {
-      modifiedDetails.push(`Short Cash Advance: ${salary.shortCashAdvance} -> ${req.body.shortCashAdvance}.`)
-      salary.shortCashAdvance = req.body.shortCashAdvance
-    }
-
-		if (req.body.shortPurchased !== salary.shortPurchased) {
-      modifiedDetails.push(`Short Purchased Item: ${salary.shortPurchased} -> ${req.body.shortPurchased}.`)
-      salary.shortPurchased = req.body.shortPurchased
-    }
-
-		if (req.body.shortOthers !== salary.shortOthers) {
-      modifiedDetails.push(`Short Others: ${salary.shortOthers} -> ${req.body.shortOthers}.`)
-      salary.shortOthers = req.body.shortOthers
+    if (req.body.dedOthers !== salary.dedOthers) {
+      modifiedDetails.push(`Other deductions: ${salary.dedOthers} -> ${req.body.dedOthers}.`)
+      salary.dedOthers = req.body.dedOthers
     }
 
 		if (req.body.govtSSS !== salary.govtSSS) {
@@ -143,6 +128,11 @@ const salaryUpdate = async (req, res) => {
     if (req.body.emprPhilhealth !== salary.emprPhilhealth) {
       modifiedDetails.push(`Employer Share Philhealth: ${salary.emprPhilhealth} -> ${req.body.emprPhilhealth}.`)
       salary.emprPhilhealth = req.body.emprPhilhealth
+    }
+
+    if (req.body.govtWTax !== salary.govtWTax) {
+      modifiedDetails.push(`WTax: ${salary.govtWTax} -> ${req.body.govtWTax}.`)
+      salary.govtWTax = req.body.govtWTax
     }
 
 		if (totalPay !== salary.totalPay) {

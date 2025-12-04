@@ -1,5 +1,5 @@
 const { salaryValidate } = require('../../utils/input-validate/salaryValidate.js')
-const { Salary, Admin, Store, AdminLog } = require('../../models/sequelize')
+const { Salary, Admin, Branch, AdminLog } = require('../../models/sequelize')
 const { userIp } = require('../../utils/userIp.js')
 const { salaryFormula } = require('../../utils/salaryFormula.js');
 const moment = require('moment');
@@ -17,12 +17,12 @@ const salaryCreate = async (req, res) => {
 
     const employee =  await Admin.findOne({ where: { id: req.body.adminId } }) 
     if (!employee) {
-        return res.status(400).json({ errors: [{ status: '400', detail: 'adminId not found' }] });
+      return res.status(400).json({ errors: [{ status: '400', detail: 'adminId not found' }] });
     }
 
-    const store =  await Store.findOne({ where: { id: req.body.storeId } }) 
-    if (!store) {
-        return res.status(400).json({ errors: [{ status: '400', detail: 'storeId not found' }] });
+    const branch =  await Branch.findOne({ where: { id: req.body.branchId } }) 
+    if (!branch) {
+      return res.status(400).json({ errors: [{ status: '400', detail: 'branchId not found' }] });
     }
 
 		const { totalPay, totalDeductions, netPay } = salaryFormula(req.body);
